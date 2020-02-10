@@ -8,25 +8,32 @@
 </head>
 <body>
     <p>Testing :)</p>
+    <button id="music">Set music+</button>
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
     <div id="dz-root"></div>
     <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
     <script>
-         window.dzAsyncInit = function() {
+        let play  = document.querySelector('#play');
+        let pause = document.querySelector("#pause");
+        let setMusic = DZ.player.playAlbum(302127);
+        play.addEventListener("click",()=>{
+            DZ.player.play();
+        })
+        pause.addEventListener("click",()=>{
+            DZ.player.pause();
+        })
+        window.dzAsyncInit = function() {
         DZ.init({
             appId  : '394584',
-            channelUrl : 'https://suspicious-elion-ec72c1.netlify.com/index.html'
+            channelUrl : 'https://suspicious-elion-ec72c1.netlify.com/index.html',
+            player : {
+                onload : onPlayerLoaded
+            }
         });
+
     }
 
-    (function() {
-        var e = document.createElement('script');
-        e.src = 'https://e-cdns-files.dzcdn.net/js/min/dz.js';
-        e.async = true;
-        document.getElementById('dz-root').appendChild(e);
-    }());
-    DZ.ready(function(sdk_options){
-	    console.log('DZ SDK is ready', sdk_options);
-    });
     </script>
     <!-- <script src="main.js"></script> -->
 
