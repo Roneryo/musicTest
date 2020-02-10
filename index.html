@@ -14,6 +14,16 @@
     <div id="dz-root"></div>
     <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
     <script>
+        window.dzAsyncInit = function() {
+            DZ.init({
+                appId  : '394584',
+                channelUrl : 'https://suspicious-elion-ec72c1.netlify.com/index.html',
+                player : {
+                    onload : onPlayerLoaded
+                }
+            });
+
+        }
         let play  = document.querySelector('#play');
         let pause = document.querySelector("#pause");
         let setMusic = DZ.player.playAlbum(302127);
@@ -23,16 +33,7 @@
         pause.addEventListener("click",()=>{
             DZ.player.pause();
         })
-        window.dzAsyncInit = function() {
-        DZ.init({
-            appId  : '394584',
-            channelUrl : 'https://suspicious-elion-ec72c1.netlify.com/index.html',
-            player : {
-                onload : onPlayerLoaded
-            }
-        });
 
-    }
 
     </script>
     <!-- <script src="main.js"></script> -->
