@@ -30,6 +30,16 @@
         pause.addEventListener("click",()=>{
             DZ.player.pause();
         })
+        function onPlayerLoaded() {
+            document.querySelector("#controlers input").attr('disabled', false);
+            DZ.Event.subscribe('current_track', function(arg){
+            });
+            DZ.Event.subscribe('player_position', function(arg){
+            });
+    
+            DZ.Event.subscribe('track_end', function() {
+            });
+        }
 
 
     </script>
