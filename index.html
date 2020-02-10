@@ -24,6 +24,9 @@
         e.async = true;
         document.getElementById('dz-root').appendChild(e);
     }());
+    DZ.ready(function(sdk_options){
+	    console.log('DZ SDK is ready', sdk_options);
+    });
     </script>
     <!-- <script src="main.js"></script> -->
 
