@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
     <title>Using Deezer API</title>
 </head>
 <body>
@@ -11,13 +12,11 @@
     <button id="music">Set music+</button>
     <button id="play">Play</button>
     <button id="pause">Pause</button>
-    <div id="dz-root"></div>
-    <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
     <script>
         window.dzAsyncInit = function() {
             DZ.init({
                 appId  : '394584',
-                channelUrl : 'https://suspicious-elion-ec72c1.netlify.com/index.html',
+                channelUrl : 'https://developers.deezer.com/examples/channel.php',
                 player : {
                     onload : onPlayerLoaded
                 }
