@@ -13,7 +13,6 @@
     <button id="play">Play</button>
     <button id="pause">Pause</button>
     <script>
-        window.dzAsyncInit = function() {
             DZ.init({
                 appId  : '8',
                 channelUrl : 'https://developers.deezer.com/examples/channel.php',
@@ -22,7 +21,6 @@
                 }
             });
 
-        }
         let play  = document.querySelector('#play');
         let pause = document.querySelector("#pause");
         let setMusic = DZ.player.playAlbum(302127);
