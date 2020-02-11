@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
-    <title>Using Deezer API</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <p>Testing :)</p>
-    <button id="music">Set music+</button>
-    <button id="play">Play</button>
-    <button id="pause">Pause</button>
-    <script>
-            DZ.init({
-                appId  : '8',
-                channelUrl : 'https://developers.deezer.com/examples/channel.php',
-                player : {
-                    onload : onPlayerLoaded
-                }
-            });
-
-        let play  = document.querySelector('#play');
-        let pause = document.querySelector("#pause");
-        let setMusic = DZ.player.playAlbum(302127);
-        play.addEventListener("click",()=>{
-            DZ.player.play();
-        })
-        pause.addEventListener("click",()=>{
-            DZ.player.pause();
-        })
-        function onPlayerLoaded() {
-            document.querySelector("#controlers input").attr('disabled', false);
-            DZ.Event.subscribe('current_track', function(arg){
-            });
-            DZ.Event.subscribe('player_position', function(arg){
-            });
-    
-            DZ.Event.subscribe('track_end', function() {
-            });
-        }
-
-
-    </script>
-    <!-- <script src="main.js"></script> -->
+  <div class="header">
+    <div class="links">
+      <ul>
+        <li><a href=""><span>facebook</span></a></li>
+        <li><a href=""><span>twitter</span></a></li>
+        <li><a href=""><span>instagram</span></a></li>
+    </ul>
+    </div>
+  </div>
+  <div class="chat-button-container">
+    <div class="mini-chat">
+        <span>+</span>
+    </div>
+  </div>
+  
+  <chat-window data-text="Probando el window"></chat-window>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <!-- Add Firebase products that you want to use --> 
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+  <script src="firebase.js"></script>
+  <script src="main.js"></script>
+  <script src="components/chat-window.js"></script>
 
 </body>
 </html>

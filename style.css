@@ -1,5 +1,124 @@
+
 *{
-    margin:0;
-    padding:0;
-    border: 1px solid gray;
+  margin:0;
+  padding:0;
+}
+body{
+}
+.header{
+  height:50px;
+  width:100vw;
+  background:black;
+  display:flex;
+  justify-content:flex-end;
+  align-content:space-around;
+
+}
+.links{
+   display:inherit;
+   align-content:space-between;
+
+}
+.links ul {
+  display:inherit;
+  list-style:none;
+}
+.links ul li{
+  display:inherit;
+  align-items:center;
+  margin-right:10px;
+  width:100%;
+  height:100%;
+}
+.links ul li{
+    display:inherit;
+    height:100%;
+}
+.links ul li a {
+  text-decoration:none;  
+  display:inherit;
+  height:100%;
+  text-align:center;
+  padding:    0 10px;
+  animation: .3s onLinkBackState alternate;
+
+}
+.links ul li a:hover {
+  animation:.3s onLinkHover forwards ; 
+}
+.links ul li a span{
+  color:white;
+  font-style:italic;  
+  align-self:center;
+}
+.chat-button-container{
+    overflow: auto;
+}
+.mini-chat{
+  background:gray;
+  display:flex;
+  position:absolute;
+  height:50px;
+  width:50px;
+  border-radius:50px;
+  bottom:0;
+  right:0;
+  margin:20px;
+  box-shadow:5px 2px 10px black;
+  justify-content:center;
+  animation: .3s onChatButtonOut forwards;
+}
+.mini-chat:hover{
+  animation: .3s onChatButtonHover forwards;
+}
+.mini-chat span{
+  align-self:center;
+  color:white;
+}
+.mini-chat.clicked{
+  animation: 1s cubic-bezier(.27,-0.57,.72,.97) onChatButtonActived forwards;
+}
+@keyframes onChatButtonHover{
+  from{
+      background:gray;
+  } 
+  to{
+      background:black;
+  }
+}
+@keyframes onChatButtonOut{
+  from{
+      background:black;
+  } 
+  to{
+      background:gray;
+  }
+}
+@keyframes onLinkHover{
+  from{
+    background:black;
+  }
+  to{
+    background:gray;
+  }
+}
+@keyframes onLinkBackState{
+  from{
+    background:gray;
+  }
+  to{
+    background:black;
+  }
+}
+@keyframes onChatButtonActived{
+  from{
+    transform:translateY(5px);
+  }
+
+  30%{
+    transform:translateY(-35px);
+  }
+  to{
+        transform:translateY(22px)scale(0);
+  }
 }
