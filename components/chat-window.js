@@ -28,9 +28,17 @@ class ChatWindow extends HTMLElement {
       const messagesSection = document.createElement("div");
       messagesSection.setAttribute('class','messagesSection');
       //icon.setAttribute('tabindex', 0);
+      const sendSection = document.createElement('div');
+      sendSection.setAttribute('class','sendSection');
+      
       const info = document.createElement('span');
       info.setAttribute('class', 'info');
-  
+
+      const sendButton=document.createElement('a');
+      sendButton.setAttribute('href','#');
+      sendButton.innerHTML="send";
+      sendSection.appendChild(info);
+      sendSection.appendChild(sendButton);
       // Take attribute content and put it inside the info span
       const text = this.getAttribute('data-text');
       info.textContent = text;
@@ -52,7 +60,7 @@ class ChatWindow extends HTMLElement {
           right:0;
           margin-bottom:75px;*/
           background:gray;
-          width:20%;
+          width:25%;
         }
         .header-window{
             display:inherit;
@@ -90,14 +98,39 @@ class ChatWindow extends HTMLElement {
             padding:5px;
             background:white;
         }
-        .info {
+        .sendSection {
           font-size: 0.8rem;
-          margin:5px 7px;
-          padding:5px;
+          display:inherit;
+          justify-content:space-between;
+          margin: 5px 10px ;
+        }
+        .sendSection .info{
           background: white;
           border-radius:5px;
-          
         }
+        .sendSection a{
+          background:blue;
+          color:white;
+          text-decoration:none;
+          border-radius:10px;
+          text-weigth:bold;
+          padding:1px 2px;
+        }
+        .sendSection a:hover{
+          animation:.5s buttonSendHover forwards;
+        }
+        @keyframes buttonSendHover{
+          from{
+            background:blue;
+            color:white;
+
+          }
+          to{
+            background:white;
+            color:black;
+          }
+        }
+        .
       `;
   
       // Attach the created elements to the shadow dom
@@ -107,7 +140,7 @@ class ChatWindow extends HTMLElement {
       
       window.appendChild(headerWindow);
       window.appendChild(messagesSection);
-      window.appendChild(info);
+      window.appendChild(sendSection);
     }
   }
   
