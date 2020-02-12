@@ -58,10 +58,13 @@ class ChatWindow extends HTMLElement {
 
       const sendButton=document.createElement('a');
       sendButton.setAttribute('href','#');
-      
-      const sendButtonText = document.createElement("span");
+      sendButton.addEventListener('click',function(){
+          console.log(info.value);
+          info.value="";
+      });
+      const sendButtonText = document.createElement("img");
       sendButtonText.setAttribute("class","sendButtonText");
-      sendButtonText.innerHTML="send";
+      sendButtonText.setAttribute("src","send.svg");
       info.appendChild(sendButtonText);
       sendButton.appendChild(sendButtonText);
       sendSection.appendChild(info);
@@ -133,6 +136,7 @@ class ChatWindow extends HTMLElement {
         .chat-window .messagesSection{
             margin:5px;
             padding:5px;
+            display:flex;
             background:white;
         }
         .sendSection {
@@ -216,7 +220,8 @@ class ChatWindow extends HTMLElement {
                 width:55%;
             }
         }
-
+        img{
+        }
      `;
   
       // Attach the created elements to the shadow dom
