@@ -47,7 +47,7 @@ class ChatWindow extends HTMLElement {
       
       const messagesSection = document.createElement("div");
       messagesSection.setAttribute('class','messagesSection');
-      
+      messagesSection.appendChild(document.createElement("span"))
       const sendSection = document.createElement('div');
       sendSection.setAttribute('class','sendSection');
       
@@ -58,8 +58,14 @@ class ChatWindow extends HTMLElement {
 
       const sendButton=document.createElement('a');
       sendButton.setAttribute('href','#');
+      
       sendButton.addEventListener('click',function(){
           console.log(info.value);
+          let sendMessage = document.createElement('span');
+          sendMessage.innerHTML = info.value;
+          this.parentNode.previousSibling.appendChild(sendMessage);
+          console.log();
+        //   attachMessage.appendChild(sendMessage);
           info.value="";
       });
       const sendButtonText = document.createElement("img");
@@ -138,6 +144,8 @@ class ChatWindow extends HTMLElement {
             padding:5px;
             display:flex;
             background:white;
+            flex-flow:column;
+            overflow:inherit;
         }
         .sendSection {
           font-size: 0.8rem;
@@ -220,7 +228,8 @@ class ChatWindow extends HTMLElement {
                 width:55%;
             }
         }
-        img{
+        span{
+            display:inline-block;
         }
      `;
   
