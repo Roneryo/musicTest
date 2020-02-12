@@ -14,33 +14,59 @@ class ChatWindow extends HTMLElement {
       headerWindow.setAttribute('class','header-window');
 
       const closeButton = document.createElement('a');
+      const buttonShow = document.querySelector(".mini-chat");
+
       closeButton.setAttribute('class','close');
       closeButton.setAttribute('href','#');
+      closeButton.addEventListener('click',function(){
+          console.log(window);
+        if(window.classList.contains("hidden")){
+            window.classList.remove("hidden")
+            }else{
+                window.classList.add("hidden");
+                chatButton.classList.remove("clicked")
+            }
+      })
+      buttonShow.addEventListener("click",function(){
+        if(this.classList.contains("clicked")){
+            
+            window.classList.remove("hidden")
+
+        }
+      })
       const closeButtonText = document.createElement('span');
       closeButtonText.setAttribute('class','closeText');
       closeButtonText.innerHTML="X";  
       closeButton.appendChild(closeButtonText);
+      
       const windowTitle = document.createElement('p');
       windowTitle.innerHTML='Ventana de chat';
       windowTitle.setAttribute('class','window-title');
       headerWindow.appendChild(windowTitle);
       headerWindow.appendChild(closeButton);
+      
       const messagesSection = document.createElement("div");
       messagesSection.setAttribute('class','messagesSection');
-      //icon.setAttribute('tabindex', 0);
+      
       const sendSection = document.createElement('div');
       sendSection.setAttribute('class','sendSection');
       
-      const info = document.createElement('input');
+      const info = document.createElement('textarea');
       info.setAttribute('type','text');
       info.setAttribute('placeholder','Escribir mensaje');
       info.setAttribute('class', 'info');
 
       const sendButton=document.createElement('a');
       sendButton.setAttribute('href','#');
-      sendButton.innerHTML="send";
+      
+      const sendButtonText = document.createElement("span");
+      sendButtonText.setAttribute("class","sendButtonText");
+      sendButtonText.innerHTML="send";
+      info.appendChild(sendButtonText);
+      sendButton.appendChild(sendButtonText);
       sendSection.appendChild(info);
       sendSection.appendChild(sendButton);
+      
       // Take attribute content and put it inside the info span
       const text = this.getAttribute('data-text');
       info.textContent = text;
@@ -57,13 +83,22 @@ class ChatWindow extends HTMLElement {
           flex-direction:column;
           position: absolute;
           border-radius:20px;
-          /*
+          box-shadow:5px 2px 10px black;
           bottom:0;
           right:0;
-          margin-bottom:75px;*/
+          z-index:0;
           background:gray;
           width:27%;
+          margin:20px;
+          margin-bottom:75px;
+          overflow:none;
+          animation: 1s onShowWindow ease;
         }
+        .chat-window.hidden{
+            animation:1s onHideWindow forwards cubic-bezier(.27,-0.57,.72,.97); 
+            /*transform:scale(0);*/           
+        }
+        
         .header-window{
             display:inherit;
             justify-content:flex-end;
@@ -111,13 +146,23 @@ class ChatWindow extends HTMLElement {
           border:none;
           width:75%
         }
+        .sendSection .info{
+            resize:none;
+            outline: none;
+            height:1.5em;
+            overflow:hidden;
+            font-family:system-ui;
+        }
         .sendSection a{
+          display:inherit;
           background:blue;
           color:white;
+          justify-content:center;
+          align-items:center;
           text-decoration:none;
           border-radius:10px;
           text-weigth:bold;
-          padding:1px 2px;
+          padding:2px;
           animation:.5s buttonSendOut forwards;
         }
         .sendSection a:hover{
@@ -144,12 +189,34 @@ class ChatWindow extends HTMLElement {
                 color:white;
             }
           }
+
+          @keyframes onHideWindow{
+              from{
+                  opacity:initial;
+              }
+              to{
+                  opacity:0;
+              }
+          }
+          @keyframes onShowWindow{
+              from{
+                opacity:0;
+              }
+              to{
+                opacity:initial;
+              }
+          }
         @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
             .chat-window{
                 width:80%;
-                margin:0 10vw ;
             }
-      }
+          }
+      @media only screen  and (min-device-width: 481px)and (max-device-width: 768px) {
+            .chat-window{
+                width:55%;
+            }
+        }
+
      `;
   
       // Attach the created elements to the shadow dom
