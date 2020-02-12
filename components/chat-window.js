@@ -132,7 +132,7 @@ class ChatWindow extends HTMLElement {
             color:black;
           }
         }
-        @media only screen  and (min-device-width: 320px)and (max-device-width: 480px)and (-webkit-min-device-pixel-ratio: 2) {
+        @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
             .chat-window{
                 width:80%;
                 margin:0 10vw ;
@@ -152,4 +152,4 @@ class ChatWindow extends HTMLElement {
   }
   
   // Define the new element
-  customElements.define('chat-window', ChatWindow);
+  customElements.define('chat-window', ChatWindow)
