@@ -107,8 +107,9 @@ class ChatWindow extends HTMLElement {
           margin: 5px 10px ;
         }
         .sendSection .info{
-          background: white;
           border-radius:5px;
+          border:none;
+          width:75%
         }
         .sendSection a{
           background:blue;
@@ -117,6 +118,7 @@ class ChatWindow extends HTMLElement {
           border-radius:10px;
           text-weigth:bold;
           padding:1px 2px;
+          animation:.5s buttonSendOut forwards;
         }
         .sendSection a:hover{
           animation:.5s buttonSendHover forwards;
@@ -132,6 +134,16 @@ class ChatWindow extends HTMLElement {
             color:black;
           }
         }
+        @keyframes buttonSendOut{
+            from{
+                background:white;
+                color:black;
+            }
+            to{
+                background:blue;
+                color:white;
+            }
+          }
         @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
             .chat-window{
                 width:80%;
