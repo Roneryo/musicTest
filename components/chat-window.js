@@ -60,7 +60,7 @@ class ChatWindow extends HTMLElement {
           right:0;
           margin-bottom:75px;*/
           background:gray;
-          width:25%;
+          width:27%;
         }
         .header-window{
             display:inherit;
