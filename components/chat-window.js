@@ -146,7 +146,7 @@ class ChatWindow extends HTMLElement {
             height: 100px;
             background: white;
             flex-flow: column;
-            overflow-y: scroll;        
+            overflow-y: auto;        
         }
         .sendSection {
           font-size: 0.8rem;
