@@ -1,3 +1,4 @@
+import LoginForm from "./login-form.js";
 class ChatWindow extends HTMLElement {
     constructor() {
       // Always call super first in constructor
@@ -29,11 +30,11 @@ class ChatWindow extends HTMLElement {
       })
       buttonShow.addEventListener("click",function(){
         if(this.classList.contains("clicked")){
-            
             window.classList.remove("hidden")
 
         }
       })
+
       const closeButtonText = document.createElement('span');
       closeButtonText.setAttribute('class','closeText');
       closeButtonText.innerHTML="X";  
@@ -47,37 +48,12 @@ class ChatWindow extends HTMLElement {
       
       const messagesSection = document.createElement("div");
       messagesSection.setAttribute('class','messagesSection');
-      
-      let loginSeciton = document.createElement("div");
-      loginSeciton.setAttribute("class","loginSection");
-      
-      let title = document.createElement("h2");
-      title.innerHTML="Login";
-      
-      let loginForm = document.createElement("form");
-      loginForm.setAttribute("class","loginForm");
-      
-      let formUsernameInput = document.createElement("input");
-      formUsernameInput.setAttribute("id","username");
-      formUsernameInput.setAttribute("type","text");
-      formUsernameInput.setAttribute("placeholder","nombre de usuario");
-
-      let formPasswordInput = document.createElement("input");
-      formPasswordInput.setAttribute("id","password");
-      formPasswordInput.setAttribute("type","password");
-      formPasswordInput.setAttribute("placeholder","contraseña");
-      let formSendButton = document.createElement("input");
-      formSendButton.setAttribute("id","validate");
-      formSendButton.setAttribute("type","submit");
-      formSendButton.addEventListener("click",function(evt){
-        evt.preventDefault();
-      });
-      loginForm.appendChild(formUsernameInput);
-      loginForm.appendChild(formPasswordInput);
-      loginForm.appendChild(formSendButton);
-      loginSeciton.appendChild(title);
-      loginSeciton.appendChild(loginForm);
-      messagesSection.appendChild(loginSeciton);
+      let login = document.createElement("login-form");
+      messagesSection.appendChild(login);
+      /*
+      Aqui toda la seccion del formulario
+      */
+     // messagesSection.appendChild(loginSeciton);
       
 
       const sendSection = document.createElement('div');
@@ -97,7 +73,7 @@ class ChatWindow extends HTMLElement {
           sendMessage.innerHTML = info.value;
           this.parentNode.previousSibling.appendChild(sendMessage);
           console.log();
-        //   attachMessage.appendChild(sendMessage);
+          //attachMessage.appendChild(sendMessage);
           info.value="";
       });
       const sendButtonText = document.createElement("img");
@@ -239,49 +215,9 @@ class ChatWindow extends HTMLElement {
         .sendSection a:hover{
           animation:.5s buttonSendHover forwards;
         }
-
-
-        .loginSection{
-            display:flex;
-            background:gray;
-            flex-direction:column;
-            margin:10px;
-            width:70%;
-            align-self:center;
-            box-shadow:5px 2px 10px black;
-            align-items:center;
-            justify-content:center;
-            align-items: center;
-            justify-content: center;
-            border-radius:10px;
-        }
-        .loginForm{
-            display:inherit;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            margin-bottom:10px;
-        }
-        .loginForm input{
-            width:80%;
-            text-align:center;
-            font-style:italic;
-            border:none;
-            font-family:system-ui;
-            margin:5px;
-            border-radius:10px;
-        }
-        .loginForm h2{
-            margin:10px;
-        }
-        .loginForm input[type="submit"]{
-            box-shadow: 0 0 2px 1px white;
-
-        }
-        .loginForm input[type="submit"]:active{
-            animation:.3s onLoginButtonActive;
-        }
-
+        /*
+        Aqui iba todo el css del formulario
+        */
         @keyframes buttonSendHover{
           from{
             background:blue;
@@ -331,6 +267,12 @@ class ChatWindow extends HTMLElement {
             .chat-window{
                 width:65%;
             }
+            .loginForm{
+                width:auto;
+            }
+            .loginSection{
+                width:80%;
+            }
           }
       @media only screen  and (min-device-width: 481px)and (max-device-width: 768px) {
             .chat-window{
@@ -343,7 +285,6 @@ class ChatWindow extends HTMLElement {
         }
 
      `;
-  
       // Attach the created elements to the shadow dom
       shadow.appendChild(style);
       console.log(style.isConnected);
@@ -359,11 +300,3 @@ class ChatWindow extends HTMLElement {
   customElements.define('chat-window', ChatWindow)
   // Graphics Gale
 
-
-
-
-let loginStyle = document.createElement("style");
-
-loginStyle.textContent=`
-
-    `
