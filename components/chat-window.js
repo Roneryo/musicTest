@@ -246,3 +246,4 @@ class ChatWindow extends HTMLElement {
   
   // Define the new element
   customElements.define('chat-window', ChatWindow)
+  // Graphics Gale
