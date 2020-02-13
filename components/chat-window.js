@@ -47,7 +47,39 @@ class ChatWindow extends HTMLElement {
       
       const messagesSection = document.createElement("div");
       messagesSection.setAttribute('class','messagesSection');
-      messagesSection.appendChild(document.createElement("span"))
+      
+      let loginSeciton = document.createElement("div");
+      loginSeciton.setAttribute("class","loginSection");
+      
+      let title = document.createElement("h2");
+      title.innerHTML="Login";
+      
+      let loginForm = document.createElement("form");
+      loginForm.setAttribute("class","loginForm");
+      
+      let formUsernameInput = document.createElement("input");
+      formUsernameInput.setAttribute("id","username");
+      formUsernameInput.setAttribute("type","text");
+      formUsernameInput.setAttribute("placeholder","nombre de usuario");
+
+      let formPasswordInput = document.createElement("input");
+      formPasswordInput.setAttribute("id","password");
+      formPasswordInput.setAttribute("type","password");
+      formPasswordInput.setAttribute("placeholder","contraseña");
+      let formSendButton = document.createElement("input");
+      formSendButton.setAttribute("id","validate");
+      formSendButton.setAttribute("type","submit");
+      formSendButton.addEventListener("click",function(evt){
+        evt.preventDefault();
+      });
+      loginForm.appendChild(formUsernameInput);
+      loginForm.appendChild(formPasswordInput);
+      loginForm.appendChild(formSendButton);
+      loginSeciton.appendChild(title);
+      loginSeciton.appendChild(loginForm);
+      messagesSection.appendChild(loginSeciton);
+      
+
       const sendSection = document.createElement('div');
       sendSection.setAttribute('class','sendSection');
       
@@ -97,7 +129,7 @@ class ChatWindow extends HTMLElement {
           right:0;
           z-index:0;
           background:gray;
-          width:27%;
+          width:35%;
           margin:20px;
           margin-bottom:75px;
           overflow:none;
@@ -143,10 +175,36 @@ class ChatWindow extends HTMLElement {
             margin: 5px;
             padding: 5px;
             display: flex;
-            height: 100px;
+            height: 200px;
             background: white;
             flex-flow: column;
+            overflow-x:hidden;
             overflow-y: auto;        
+        }
+
+        .chat-window .messagesSection::-webkit-scrollbar{
+            width: 8px;     /* Tamaño del scroll en vertical */
+            height: 8px;    /* Tamaño del scroll en horizontal */
+        }
+        
+        .chat-window .messagesSection::-webkit-scrollbar-thumb{
+            background: #ccc;
+            border-radius: 4px;
+        }
+        .chat-window .messagesSection::-webkit-scrollbar-thumb:hover{
+            background: #b3b3b3;
+            box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+        }
+        .chat-window .messagesSection::-webkit-scrollbar-thumb:active{
+            background-color:#999999;
+        }
+        .chat-window .messagesSection::-webkit-scrollbar-track{
+            background: #e1e1e1;
+            border-radius: 4px;
+        }
+        .chat-window .messagesSection::-webkit-scrollbar-track:hover,
+        .chat-window .messagesSection::-webkit-scrollbar-track:active{
+            background:#d4d4d4;
         }
         .sendSection {
           font-size: 0.8rem;
@@ -181,11 +239,53 @@ class ChatWindow extends HTMLElement {
         .sendSection a:hover{
           animation:.5s buttonSendHover forwards;
         }
+
+
+        .loginSection{
+            display:flex;
+            background:gray;
+            flex-direction:column;
+            margin:10px;
+            width:70%;
+            align-self:center;
+            box-shadow:5px 2px 10px black;
+            align-items:center;
+            justify-content:center;
+            align-items: center;
+            justify-content: center;
+            border-radius:10px;
+        }
+        .loginForm{
+            display:inherit;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            margin-bottom:10px;
+        }
+        .loginForm input{
+            width:80%;
+            text-align:center;
+            font-style:italic;
+            border:none;
+            font-family:system-ui;
+            margin:5px;
+            border-radius:10px;
+        }
+        .loginForm h2{
+            margin:10px;
+        }
+        .loginForm input[type="submit"]{
+            box-shadow: 0 0 2px 1px white;
+
+        }
+        .loginForm input[type="submit"]:active{
+            animation:.3s onLoginButtonActive;
+        }
+
         @keyframes buttonSendHover{
           from{
             background:blue;
             color:white;
-
           }
           to{
             background:white;
@@ -202,7 +302,6 @@ class ChatWindow extends HTMLElement {
                 color:white;
             }
           }
-
           @keyframes onHideWindow{
               from{
                   opacity:initial;
@@ -219,19 +318,30 @@ class ChatWindow extends HTMLElement {
                 opacity:initial;
               }
           }
+          @keyframes onLoginButtonActive {
+              from{
+                transform:scale(0.9)
+              }
+              to{
+                transform:scale(1);
+              }
+
+          }
         @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
             .chat-window{
-                width:80%;
+                width:65%;
             }
           }
       @media only screen  and (min-device-width: 481px)and (max-device-width: 768px) {
             .chat-window{
-                width:55%;
+                width:65%;
+                margin-bottom:20px;
             }
         }
         span{
-            display:inline-block;
+            overflow-wrap:break-word;
         }
+
      `;
   
       // Attach the created elements to the shadow dom
@@ -248,3 +358,12 @@ class ChatWindow extends HTMLElement {
   // Define the new element
   customElements.define('chat-window', ChatWindow)
   // Graphics Gale
+
+
+
+
+let loginStyle = document.createElement("style");
+
+loginStyle.textContent=`
+
+    `
