@@ -15,7 +15,7 @@
       // The above is shorthand for:
       // var database = firebase.database(app);
 
-      var ref = firebase.database().ref("Personas");
+      var ref = firebase.database().ref("/");
       ref.once("value")
           .then(function(snapshot){
           var name = snapshot.child("/").val(); // {first:"Ada",last:"Lovelace"}
@@ -24,3 +24,27 @@
           // var age = snapshot.child("age").val(); // null                
           console.log(name);
       })
+      firebase.database().ref('users/'+'3').set(
+        {
+          nombre:"Oscar",
+          apellido:"Dugarte",
+          contraseña:"*****",
+          cedula:"unknown",
+          email:"oscardugarte1@gmail.com",
+          amigos:{
+            amigo:{
+              nombre:"",
+              apellido:"",
+              correo:""
+            }
+          },
+          mensajes:{
+              mensaje:{
+                  de:"",
+                  timestamp:"",
+                  contenido:""
+              }
+          }
+      
+      }
+      )

@@ -1,0 +1,21 @@
+{
+    "nombre":"Roner",
+    "apellido":"Ortega",
+    "contraseña":"*****",
+    "cedula":"26756500",
+    "email":"roner.ortega@gmail.com",
+    "amigos":{
+      "amigo":{
+        "nombre":"",
+        "apellido":"",
+        "correo":""
+      }
+    },
+    "mensajes":{
+        "mensaje":{
+            "de":"",
+            "timestamp":"",
+            "contenido":""
+        }
+    }
+}

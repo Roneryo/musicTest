@@ -140,12 +140,13 @@ class ChatWindow extends HTMLElement {
             align-self:center;
         }
         .chat-window .messagesSection{
-            margin:5px;
-            padding:5px;
-            display:flex;
-            background:white;
-            flex-flow:column;
-            overflow:inherit;
+            margin: 5px;
+            padding: 5px;
+            display: flex;
+            height: 100px;
+            background: white;
+            flex-flow: column;
+            overflow-y: scroll;        
         }
         .sendSection {
           font-size: 0.8rem;
