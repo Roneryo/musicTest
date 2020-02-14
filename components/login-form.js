@@ -44,7 +44,7 @@ export default class LoginForm extends HTMLElement{
                           console.log(smalldata.contraseña);
                           formUsernameInput.value="";
                           formPasswordInput.value="";  
-
+                          document.querySelector("messagesSection'");
                       }else{
                         formUsernameInput.value="";
                         formPasswordInput.value="";
