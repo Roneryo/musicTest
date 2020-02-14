@@ -1,4 +1,5 @@
 import LoginForm from "./login-form.js";
+import ChatList from "./chat-list.js";
 class ChatWindow extends HTMLElement {
     constructor() {
       // Always call super first in constructor
@@ -287,4 +288,3 @@ class ChatWindow extends HTMLElement {
   // Define the new element
   customElements.define('chat-window', ChatWindow)
   // Graphics Gale
-

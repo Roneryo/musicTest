@@ -1,14 +1,16 @@
 export default class LoginForm extends HTMLElement{
+
     constructor(){
         //Siempre se llama al constructor
         super();
         //create a shadow root
+
         const shadow = this.attachShadow({mode:'open'});
-        
+        let messagesSection = document.querySelector(".messagesSection");
         //componentes
         let loginSeciton = document.createElement("div");
         loginSeciton.setAttribute("class","loginSection");
-        
+
         let title = document.createElement("h2");
         title.innerHTML="Login";
         
@@ -23,28 +25,29 @@ export default class LoginForm extends HTMLElement{
         let formPasswordInput = document.createElement("input");
         formPasswordInput.setAttribute("id","password");
         formPasswordInput.setAttribute("type","password");
-        formPasswordInput.setAttribute("placeholder","contraseña");
+        
         let formSendButton = document.createElement("input");
         formSendButton.setAttribute("id","validate");
         formSendButton.setAttribute("type","submit");
         formSendButton.addEventListener("click",function(evt){
           evt.preventDefault();
+
           ref.once('value',function(snapshot){
               console.log(formUsernameInput.value);
               snapshot.forEach(function(childSnapshot){
                 var childKey = childSnapshot.key;
                 var childData = childSnapshot.val();
+                console.log(childSnapshot.val());
                 childData.forEach(function(smalldata){
                   if(
                       formUsernameInput.value === smalldata.email &&
                       formPasswordInput.value === smalldata.contraseña
                       ){
-                          console.log(smalldata.email);
-                          console.log(smalldata.contraseña);
-                          formUsernameInput.value="";
-                          formPasswordInput.value="";  
-                          document.querySelector("messagesSection'");
-                      }else{
+                        loginSeciton.classList.add("hide");
+                        // console.log(smalldata.key);
+                        formUsernameInput.value="";
+                        formPasswordInput.value="";
+                    }else{
                         formUsernameInput.value="";
                         formPasswordInput.value="";
                     }
@@ -59,9 +62,17 @@ export default class LoginForm extends HTMLElement{
         loginSeciton.appendChild(title);
         loginSeciton.appendChild(loginForm);
         const style = document.createElement('style');
-        console.log(style.isConnected);
     
         style.textContent = `
+        .hide{
+            animation:.4s hiding forwards;
+        }
+        .loginSection.hide{
+            display:none;
+        }
+        .loginSection.show{
+            animation:.4s show forwards;
+        }
         .loginSection{
             display:flex;
             background:gray;
@@ -109,6 +120,23 @@ export default class LoginForm extends HTMLElement{
               transform:scale(1);
             }
         }
+        @keyframes hiding{
+            from{
+                opacity:1;
+            }
+            to{
+                opacity:0;
+                display:none;
+            }
+        }
+        @keyframes show{
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+        }
         @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
 
             .loginForm{
@@ -118,9 +146,9 @@ export default class LoginForm extends HTMLElement{
                 width:80%;
             }
           }
+
         `;
         shadow.appendChild(style);
-        console.log(style.isConnected);
         shadow.appendChild(loginSeciton);
 
     }

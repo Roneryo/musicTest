@@ -118,14 +118,13 @@
         transform:translateY(22px)scale(0);
   }
 }
-
+.sprite{
+  display:none;
+}
 .red{
   position: relative;
   z-index: 1;
   margin-top: 53px;
-}
-body{
-  background:white;
 }
 .catHead{
   display: block;
