@@ -42,7 +42,13 @@ export default class LoginForm extends HTMLElement{
                           
                           console.log(smalldata.email);
                           console.log(smalldata.contraseña);
-                      }
+                          formUsernameInput.value="";
+                          formPasswordInput.value="";  
+
+                      }else{
+                        formUsernameInput.value="";
+                        formPasswordInput.value="";
+                    }
                 });
                 // console.log(childKey+":",childData);
               })
@@ -96,6 +102,14 @@ export default class LoginForm extends HTMLElement{
             animation:.3s onLoginButtonActive;
         }
 
+        @keyframes onLoginButtonActive {
+            from{
+              transform:scale(0.9)
+            }
+            to{
+              transform:scale(1);
+            }
+        }
         @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
 
             .loginForm{

@@ -256,15 +256,8 @@ class ChatWindow extends HTMLElement {
                 opacity:initial;
               }
           }
-          @keyframes onLoginButtonActive {
-              from{
-                transform:scale(0.9)
-              }
-              to{
-                transform:scale(1);
-              }
-          }
-        @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
+
+        @media only screen  and(min-device-width: 200px)and (max-device-width: 480px) {
             .chat-window{
                 width:65%;
             }
