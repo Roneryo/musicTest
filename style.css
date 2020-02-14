@@ -130,6 +130,14 @@ body{
 .catHead{
   display: block;
   z-index: 0;
+  width:133px;
+  height:63px;
+  background-image:url('redHead.gif');
+  background-size:300%,100%;
+  background-repeat: no-repeat;
   margin-left: 41px;
   position: fixed;
+}
+*{
+  border:none;
 }
