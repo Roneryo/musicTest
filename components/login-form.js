@@ -39,7 +39,6 @@ export default class LoginForm extends HTMLElement{
                       formUsernameInput.value === smalldata.email &&
                       formPasswordInput.value === smalldata.contraseña
                       ){
-                          
                           console.log(smalldata.email);
                           console.log(smalldata.contraseña);
                           formUsernameInput.value="";

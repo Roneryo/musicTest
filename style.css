@@ -118,26 +118,18 @@
         transform:translateY(22px)scale(0);
   }
 }
-body{
-  background: black;
-}
 
 .red{
   position: relative;
   z-index: 1;
   margin-top: 53px;
 }
+body{
+  background:white;
+}
 .catHead{
   display: block;
   z-index: 0;
-  width:133px;
-  height:63px;
-  background-image:url('redHead.gif');
-  background-size:300%,100%;
-  background-repeat: no-repeat;
   margin-left: 41px;
   position: fixed;
-}
-*{
-  border:none;
 }
