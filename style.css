@@ -118,7 +118,9 @@
         transform:translateY(22px)scale(0);
   }
 }
-
+body{
+  background: black;
+}
 
 .red{
   position: relative;
