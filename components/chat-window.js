@@ -49,6 +49,7 @@ class ChatWindow extends HTMLElement {
       const messagesSection = document.createElement("div");
       messagesSection.setAttribute('class','messagesSection');
       let login = document.createElement("login-form");
+
       messagesSection.appendChild(login);
       /*
       Aqui toda la seccion del formulario
@@ -94,6 +95,7 @@ class ChatWindow extends HTMLElement {
       console.log(style.isConnected);
   
       style.textContent = `
+      
         .chat-window {
           display:flex;
           font-family:system-ui;
@@ -261,17 +263,10 @@ class ChatWindow extends HTMLElement {
               to{
                 transform:scale(1);
               }
-
           }
         @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
             .chat-window{
                 width:65%;
-            }
-            .loginForm{
-                width:auto;
-            }
-            .loginSection{
-                width:80%;
             }
           }
       @media only screen  and (min-device-width: 481px)and (max-device-width: 768px) {

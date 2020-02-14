@@ -57,18 +57,11 @@ export default class LoginForm extends HTMLElement{
         console.log(style.isConnected);
     
         style.textContent = `
-        login-form{
-            align-self: center;
-            justify-self: center;
-            width: 90%;
-        }
-        *{margin:padding:0;}
         .loginSection{
             display:flex;
             background:gray;
             flex-direction:column;
             margin:10px;
-            width:85%;
             align-self:center;
             box-shadow:5px 2px 10px black;
             align-items: center;
@@ -102,6 +95,16 @@ export default class LoginForm extends HTMLElement{
         .loginForm input[type="submit"]:active{
             animation:.3s onLoginButtonActive;
         }
+
+        @media only screen  and (min-device-width: 200px)and (max-device-width: 480px) {
+
+            .loginForm{
+                width:auto;
+            }
+            .loginSection{
+                width:80%;
+            }
+          }
         `;
         shadow.appendChild(style);
         console.log(style.isConnected);
