@@ -3,8 +3,10 @@ export default class LoginForm extends HTMLElement{
     constructor(){
         //Siempre se llama al constructor
         super();
-        //create a shadow root
 
+        //create a shadow root
+        var login = this;
+        
         const shadow = this.attachShadow({mode:'open'});
         let messagesSection = document.querySelector(".messagesSection");
         //componentes
@@ -31,7 +33,7 @@ export default class LoginForm extends HTMLElement{
         formSendButton.setAttribute("type","submit");
         formSendButton.addEventListener("click",function(evt){
           evt.preventDefault();
-
+          var flag = false;
           ref.once('value',function(snapshot){
               console.log(formUsernameInput.value);
               snapshot.forEach(function(childSnapshot){
@@ -47,6 +49,8 @@ export default class LoginForm extends HTMLElement{
                         // console.log(smalldata.key);
                         formUsernameInput.value="";
                         formPasswordInput.value="";
+                        document.createElement("chat-list");
+                        
                     }else{
                         formUsernameInput.value="";
                         formPasswordInput.value="";

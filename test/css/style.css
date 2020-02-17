@@ -1,0 +1,92 @@
+/* @font-face kit by Fonts2u (https://fonts2u.com) */ 
+@font-face {
+    font-family:"pix PixelFJVerdana12pt";
+    src:url("PixelFJVerdana12pt.eot?") format("eot"),
+    url("PixelFJVerdana12pt.woff")format("woff"),
+    url("PixelFJVerdana12pt.ttf") format("truetype"),
+     url("PixelFJVerdana12pt.svg#") format("svg");
+    font-weight:initial;
+    font-style:italic;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+main{
+    display:flex;
+    width:100vw;
+    justify-content: center;
+}
+.sprite{
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    right:0;
+    display:none;
+}
+.head{
+    display: block;
+    z-index: 0;
+    margin-left: 41px;
+    position: fixed;
+}
+.body{
+    position: relative;
+    margin-top: 53px;
+}
+.eye{
+    display: block;
+    z-index: 1;
+    position: fixed;
+    margin-top: 73px;
+    margin-left: 66px;
+}
+.boca1{
+    display: block;
+    z-index: 1;
+    position:fixed;
+    margin-top:95px;
+    margin-left:74px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:  1fr 1fr;
+}
+.cell{
+    display:none;
+}
+.annaEyes{
+    position: fixed;
+    margin-top: 60px;
+    margin-left: 35px;
+}
+.annaMouth{
+    position: fixed;
+    margin-top: 93px;
+    margin-left: 53px;
+}
+@font-face
+{
+    font-family :"FJVerdana";
+    src:url("pix-pixelfjverdana12pt.regular.ttf")format("truetype")
+}
+p{
+    font-family: "pix PixelFJVerdana12pt";
+    font-size: 9px;
+    color:white;
+
+}
+.container{
+    margin-top:10px;
+}
+body{
+    background: url("../assets/background.png"); 
+}
+.image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    width: 120vh;
+}
